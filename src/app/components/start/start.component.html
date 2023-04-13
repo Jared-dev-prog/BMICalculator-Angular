@@ -1,0 +1,110 @@
+<main class="container mx-auto max-w-3xl py-5">
+  <div class="shadow-xl py-5 px-3 rounded-lg border">
+    <h1
+      class="mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white text-center"
+    >
+      BMI CALCULATOR
+    </h1>
+
+    <div class="flex justify-center gap-x-7 w-9/12 mx-auto">
+      <div
+        class="flex flex-col gap-y-5 items-center w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer"
+        [ngClass]="{ 'bg-blue-800': sex === 'male' }"
+        (click)="selectMale()"
+      >
+        <i class="fa-solid fa-mars fa-2xl"></i>
+        <h5
+          class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Male
+        </h5>
+      </div>
+
+      <div
+        class="flex flex-col gap-y-5 items-center w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer"
+        [ngClass]="{ 'bg-blue-800': sex === 'female' }"
+        (click)="selectFemale()"
+      >
+        <i class="fa-solid fa-venus fa-2xl" style="color: #bb2aaf"></i>
+        <h5
+          class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Female
+        </h5>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-x-7 w-9/12 mx-auto mt-5">
+      <div
+        class="flex flex-col gap-y-5 items-center w-full p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer"
+      >
+        <h5
+          class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Altura
+        </h5>
+        <p class="font-bold text-xl">{{ height }} cm</p>
+        <input
+          id="default-range"
+          type="range"
+          [value]="height"
+          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+          (input)="changeHeight($event)"
+          min="120"
+          max="220"
+        />
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-x-7 w-9/12 mx-auto mt-5">
+      <div
+        class="flex flex-col gap-y-5 items-center w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer"
+      >
+        <h5
+          class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Weight
+        </h5>
+        <p class="font-bold text-3xl">{{ weight }}</p>
+        <div class="flex gap-x-5 mt-2">
+          <i
+            class="fa-solid fa-circle-plus fa-2xl"
+            (click)="weight = weight + 1"
+          ></i>
+          <i
+            class="fa-solid fa-circle-minus fa-2xl"
+            (click)="weight = weight - 1"
+          ></i>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col gap-y-5 items-center w-1/2 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer"
+      >
+        <h5
+          class="text-xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Age
+        </h5>
+        <p class="font-bold text-3xl">{{ age }}</p>
+        <div class="flex gap-x-5 mt-2">
+          <i class="fa-solid fa-circle-plus fa-2xl" (click)="age = age + 1"></i>
+          <i
+            class="fa-solid fa-circle-minus fa-2xl"
+            (click)="age = age - 1"
+          ></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-x-7 w-9/12 mx-auto mt-5">
+      <button
+        type="button"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-base px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full"
+        (click)="calculateBMI()"
+      >
+        Calculate
+      </button>
+    </div>
+  </div>
+</main>
